@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Calculator from '@/components/basic/Calculator'
 import JoinForm from '@/components/member/JoinForm'
-// import KbnLoginView from '@/components/templates/KbnLoginView'
-import KbnLoginForm from '@/components/molecules/KbnLoginForm'
+import LoginForm from '@/components/member/LoginForm'
+import Calculator2 from '@/components/basic/Calculator2'
+import ListTable from '@/components/member/ListTable'
+
 
 Vue.use(Router)
 
@@ -17,25 +18,26 @@ export default new Router({
       component: Home
     },
     {
-      path: '/calculator',
-      name: 'calculator',
-      component: Calculator
+      path: '/Calculator2',
+      name: 'Calculator2',
+      component: Calculator2
     },
     {
-      path: '/joinForm',
-      name: 'joinForm',
+      path: '/JoinForm',
+      name: 'JoinForm',
       component: JoinForm
     },
     {
-      path: '/KbnLoginForm',
-      name: 'KbnLoginForm',
-      component: KbnLoginForm
+      path: '/LoginForm',
+      name: 'LoginForm',
+      component: LoginForm
     },
-    // {
-    //   path: '/KbnLoginView',
-    //   name: 'KbnLoginView',
-    //   component: KbnLoginView
-    // }
+    {
+      path: '/ListTable',
+      name: 'ListTable',
+      component: ListTable
+    },
+    
   
   ]
 })

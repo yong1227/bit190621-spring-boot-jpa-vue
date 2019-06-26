@@ -19,7 +19,6 @@ import lombok.ToString;
  * Customer
  */
 
- 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter

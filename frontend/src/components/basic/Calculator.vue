@@ -28,34 +28,32 @@ export default {
   data() {
     return {
       previous: null,
-      current: "",
+      current: '',
       operator: null,
-      operatorClicked: false
-    };
+      operatorClicked: false,
+    }
   },
   methods: {
     clear() {
-      this.current = "";
+      this.current = '';
     },
     sign() {
-      this.current =
-        this.current.charAt(0) === "-"
-          ? this.current.slice(1)
-          : `-${this.current}`;
+      this.current = this.current.charAt(0) === '-' ? 
+        this.current.slice(1) : `-${this.current}`;
     },
     percent() {
       this.current = `${parseFloat(this.current) / 100}`;
     },
     append(number) {
       if (this.operatorClicked) {
-        this.current = "";
+        this.current = '';
         this.operatorClicked = false;
       }
       this.current = `${this.current}${number}`;
     },
     dot() {
-      if (this.current.indexOf(".") === -1) {
-        this.append(".");
+      if (this.current.indexOf('.') === -1) {
+        this.append('.');
       }
     },
     setPrevious() {
@@ -80,14 +78,14 @@ export default {
     },
     equal() {
       this.current = `${this.operator(
-        parseFloat(this.current),
+        parseFloat(this.current), 
         parseFloat(this.previous)
       )}`;
-      console.log("결과 : " + this.current);
+      console.log('결과 : '+this.current)
       this.previous = null;
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -108,7 +106,7 @@ export default {
   grid-column: 1 / 3;
 }
 .btn {
-  background-color: #f2f2f2;
+  background-color: #F2F2F2;
   border: 1px solid #999;
 }
 .operator {
