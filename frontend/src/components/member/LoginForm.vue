@@ -1,7 +1,7 @@
 <template>
 <div>
   <Nav></Nav>
-  <form @submit="submit">
+  <form>
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email">
@@ -13,7 +13,7 @@
     <div class="checkbox">
       <label><input type="checkbox"> Remember me</label>
     </div>
-    <button type="submit" class="btn btn-default"><router-link to="/ListTable"> Submit</router-link></button>
+    <button type="submit" class="btn btn-default" @click="submit">Submit</button>
   </form>
   <Footer></Footer>
 </div>
@@ -23,15 +23,23 @@
 import Nav from '@/components/common/Nav.vue'
 import Footer from'@/components/common/Footer.vue'
 import ListTable from '@/components/member/ListTable'
+import axios from 'axios'
+
 export default {
   components: {
     Nav,
     Footer
   },
   methods:{
-    submit(){
-      alert('보내짐');
-
+    submit: function(){
+      alert('보내짐')
+      axios.get('/customers/count')
+      .then(d=>{
+        alert(`SUCCESS : ${d.data}`)
+      })
+      .catch(e=>{
+        alert('ERROR')
+      })
     }
   }
 }

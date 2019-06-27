@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/customers")
+// @RequestMapping("/")
 public class CustomerController {
     @Autowired CustomerService customerService;
     @Autowired CustomerDTO customer;
@@ -54,12 +55,20 @@ public class CustomerController {
         return map;
     }
 
+    // @GetMapping("/count")
+    // public String count(){
+    //     System.out.println("CustomerController count() 경로로 들어온다");
+    //     int count = customerService.countAll();
+    //     System.out.println("고객의 총인원 : " + count);
+    //     return count+"";
+    // }
+
     @GetMapping("/count")
     public String count(){
         System.out.println("CustomerController count() 경로로 들어온다");
         int count = customerService.countAll();
         System.out.println("고객의 총인원 : " + count);
-        return count+"";
+        return "100";
     }
 
     @GetMapping("/{customerId}/{password}")
@@ -109,5 +118,4 @@ public class CustomerController {
         map.put("result", "탈퇴 성공");
         return map;
     }
-    
 }
